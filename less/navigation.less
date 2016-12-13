@@ -1,0 +1,424 @@
+/* ==========================================================================
+    Sommaire
+
+    1 = Menu
+    2 = Pager
+    3 = Menu DropDown
+    4 = Menu draggable
+========================================================================== */
+
+.hide-menu {
+    &.sidebar-menu {
+        .menu {
+            left: -12em!important;
+            top: 0;
+        }
+    }
+    .menu {
+        top: -6em;
+    }
+    .selector-language {
+        display: none;
+    }
+    .topBar {
+        top: -6em;
+    }
+}
+
+.menu-block {
+    border: 1px solid #CCC;
+    background: #FFF;
+    li {
+        border-top: 1px solid #CCC;
+        padding: 0.8em 1.2em;
+        &:first-child { border: 0; }
+    }
+}
+
+.menu-inline {
+    border-bottom: 1px solid @blue;
+    margin-bottom: 1.5em;
+    li {
+        display: inline-block;
+    }
+    a, v-tab span {
+        display: block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        color: @blue;
+        position: relative;
+    }
+    a.active, v-tab.is-active span {
+        color: @orange;
+        &:after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            bottom: -1px;
+            left: 0;
+            position: absolute;
+            background: @orange;
+        }
+    }
+}
+
+/* ==========================================================================
+    1 = Menu
+========================================================================== */
+
+.sidebar-menu {
+    margin: 0 0 0 7em;
+    position: relative;
+    &.iconOnly {
+        .menu {
+            width: 3em;
+            padding-top: 3em;
+            span {
+                position: absolute;
+                top: -9999px;
+            }
+            a {
+                padding: 1em;
+            }
+            .submenu {
+                span {
+                    position: static;
+                }
+            }
+        }
+        .logo {
+            width: 2em;
+            left: 0.5em;
+            top: 0.5em;
+        }
+    }
+    .logo {
+        width: 4em;
+        left: 1.4em;
+    }
+    .topBar {
+        background: #FFF;
+        border: 0;
+        padding: 0.3em;
+        border-bottom: 2px solid @xLightBlue;
+    }
+    .menu {
+        width: 7em;
+        left: 0;
+        padding: 6em 0 0 0;
+        height: 100%;
+        box-shadow: none;
+        background: #FFF;
+        border: 0;
+        border-right: 2px solid @xLightBlue;
+        position: fixed;
+        li {
+            display: block;
+            position: relative;
+            padding: 0;
+            text-align: center;
+            border-top: 2px solid @lightBlue;
+            &:hover {
+                .submenu { display: block; }
+            }
+        }
+        a, .no-link {
+            padding: 1.5em 1em;
+            font-size: 0.85em;
+            color: @blue;
+            transition: all 0.5s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            &:hover {
+                background: @xLightBlue;
+            }
+            &:before {
+                display: block;
+                font-size: 1.6em;
+                margin-bottom: 0.2em;
+            }
+        }
+    }
+    .menuProfile .dropDownMenu {
+        display: block;
+    }
+    .menuProfile .dropDownMenu .btn-dropDown {
+        color: @blue;
+    }
+    .menuProfile .dropDownMenu ul {
+        top: 1.8em;
+        left: auto;
+        right: 0;
+        min-width: 8em;
+        font-size: 0.8em;
+    }
+    .submenu {
+        display: none;
+        position: absolute;
+        top: -2px;
+        left: 100%;
+        background: #FFF;
+        border: 2px solid @xLightBlue;
+        width: 8em;
+        margin: 0;
+        li {
+            text-align: left;
+            padding: 0;
+            border: 0;
+            &:before {
+                content: none;
+            }
+            a {
+                padding: 0.8em 1em;
+                text-transform: none;
+            }
+        }
+    }
+    .menu-block > li {
+        border-top: 2px solid @xLightBlue;
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background: #FFF;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    padding-left: 5em;
+    transition: all 0.5s ease;
+    li {
+        display: inline-block;
+    }
+    a {
+        padding: 1.5em 2em;
+        display: block;
+        color: #444;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.1em;
+        &:hover {
+            color: @blue;
+        }
+    }
+}
+
+/* ==========================================================================
+    2 = Pager
+========================================================================== */
+
+.pager {
+    text-align: center;
+    li {
+        display: inline-block;
+        margin-right: 0.5em;
+    }
+    a {
+        background: @blue;
+        color: #FFF;
+        display: block;
+        padding: 0.2em 0.6em;
+        text-decoration: none;
+        border-radius: 2px;
+        &:hover,
+        &:focus {
+            background-color: lighten(@blue, 10%);
+        }
+    }
+    .active {
+        background: @orange;
+        cursor: default;
+        &:hover,
+        &:focus {
+            background-color: @orange;
+        }
+    }
+    .disabled a {
+        background: #999;
+        cursor: not-allowed;
+    }
+}
+
+/* ==========================================================================
+    3 = Menu DropDown
+========================================================================== */
+
+.warning-btn .dropDownMenu {
+    background: @red;
+    &:hover,
+    &:focus {
+        background-color: lighten(@red, 10%);
+    }
+    .btn-dropDown {
+        background: @red;
+        &:hover,
+        &:focus {
+            background-color: lighten(@red, 10%);
+        }
+    }
+}
+.validate-btn .dropDownMenu {
+    background: @green;
+    &:hover,
+    &:focus {
+        background-color: lighten(@green, 10%);
+    }
+    .btn-dropDown {
+        background: @green;
+        &:hover,
+        &:focus {
+            background-color: lighten(@green, 10%);
+        }
+    }
+}
+
+.dropDownMenu {
+    position: relative;
+    box-shadow: 0 .1em .3em rgba(0,0,0,.3);
+    background: @blue;
+    border-radius: 2px;
+    vertical-align: middle;
+    display: inline-block;
+    .btn-dropDown {
+        text-transform: uppercase;
+        color: #FFF;
+        font-size: 0.75em;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        min-height: 2em;
+        transition: all 0.5s ease;
+        float: left;
+        width: auto;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        &:hover {
+            background: lighten(@blue, 10%);
+        }
+        + .btn-dropDown {
+            border-left: 1px solid rgba(255, 255, 255, 0.3);;
+        }
+    }
+}
+
+.dropDownMenu ul {
+    display: none;
+    position: absolute;
+    background: #FFF;
+    top: 1.9em;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+}
+
+.dropDownMenu li {
+    border-top: 1px solid #CCC;
+    cursor: pointer;
+    &:first-child { border: 0;}
+}
+
+.dropDownMenu ul a {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #444;
+    font-size: 0.9em;
+}
+
+.dropDownMenu .menuAction {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    &:hover {
+        background: @xLightBlue;
+    }
+}
+.dropDownMenu .menuAction.danger {
+    color: @red;
+    &:hover {
+        color: #FFF;
+        background: lighten(@red, 10%);
+    }
+}
+
+.dropDownMenu .isVisible { display: block; }
+
+.menuProfile {
+    display: inline-block;
+    margin-right: 1em;
+    .dropDownMenu {
+        box-shadow: none;
+        background: none;
+        display: inline;
+        line-height: 1;
+        > div.btn-dropDown {
+            cursor: default;
+        }
+    }
+    .btn-dropDown {
+        text-transform: none;
+        padding: 0;
+        min-height: 0;
+        font-size: 0.8em;
+        background: none;
+        + .btn-dropDown {
+            border: 0;
+            margin-left: 0.5em;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &:hover {
+            background: none;
+        }
+    }
+}
+
+/* ==========================================================================
+    4 = Menu Draggable
+========================================================================== */
+
+.menu-draggable {
+    li {
+        padding: 0.5em 1em;
+        background: @xLightBlue;
+        cursor: move;
+        margin-bottom: 2px;
+        position: relative;
+    }
+    .content { display: inline-block; }
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    .disabled_true { cursor: default; }
+    .action-buttons {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        button {
+            margin: 0;
+        }
+    }
+    .hidden { display: none; }
+    .dndPlaceholder {
+        min-height: 40px;
+        background: #CCC;
+    }
+    .formEditProperty {
+        margin-top: 1em;
+    }
+}
+
+.formEditCreate { margin-top: 1em; }
+.btn-add-property {
+    padding-left: 2.5em;
+    &:before {
+        font-size: 1.55em;
+    }
+}

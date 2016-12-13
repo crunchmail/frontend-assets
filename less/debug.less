@@ -1,0 +1,66 @@
+.hide-menu #doorbell-button {
+  bottom: -10em;
+}
+
+.iconOnly #doorbell-button {
+    text-indent: -9999px;
+    padding: 0.5em 1.3em;
+    left: 0.8em;
+    &:before {
+        content: "F";
+        position: absolute;
+        text-indent: 0;
+        left: 1em;
+    }
+}
+
+#doorbell-button {
+  bottom: 1.5em;
+  left: 1em;
+  z-index: 20;
+  font-size: .75em;
+  background: #333;
+  color: #FFFFFF;
+  padding: .5em 1em;
+  z-index: 20;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 .1em .3em rgba(0,0,0,.3);
+  transition: all 0.5s ease;
+  &:hover,
+  &:focus {
+    background: lighten(#333, 10%);
+  }
+}
+
+#doorbell {
+  form {
+    box-shadow: none;
+    padding: 2.5em;
+    border-color: #CCC;
+    border-radius: 2px;
+  }
+  form legend {
+    font-size: 1.2em;
+    border: none;
+  }
+  .buttons button {
+    padding: .8em 2em;
+    font-size: 0.8em;
+    width: auto;
+  }
+  input[type="checkbox"] {
+    position: static;
+    width: auto;
+    margin-right: 0.5em;
+  }
+  form textarea,
+  form input[type="email"] {
+    box-sizing: border-box;
+    padding: .5em .8em;
+    width: 100%;
+  }
+}
+
+#doorbell-powered-by { display: none!important; }

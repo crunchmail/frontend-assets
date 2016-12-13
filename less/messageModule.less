@@ -1,0 +1,623 @@
+/*
+* List Messages
+*/
+
+.info-message {
+    padding: 1em;
+    li { margin-bottom: 0.3em; }
+    strong { color: #666; }
+    .legend { font-style: normal; }
+}
+
+.emailContainer {
+    border: 4px solid @lightBlue;
+    position: relative;
+    background: #FFF;
+    &:before {
+        content: "○ ○ ○";
+        display: block;
+        height: 1.5em;
+        font-size: 1.5em;
+        padding: 0 0.5em;
+        color: @lightBlue;
+        border-bottom: 2px solid @lightBlue;
+    }
+}
+
+.stats-tabs {
+    min-height: 20em;
+    .search_form {
+        display: flex;
+    }
+    .export-csv-btn {
+        font-size: 0.7em;
+        min-width: 19em;
+        margin-left: 1em;
+    }
+}
+
+.sender_info {
+    padding: 1.5em 2em 0;
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin: 1em auto;
+        background: @lightBlue;
+    }
+}
+
+.subject_email {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 0 1.5em;
+    margin-bottom: 1em;
+}
+
+.sender_name { font-weight: 700; }
+.sender_email { font-style: italic; }
+
+.importBtn {
+    color: @blue;
+}
+
+.form-group-category {
+    .customSelect,
+    button {
+        display: inline-block;
+    }
+    button {
+        padding: 0.6em 0.9em;
+        box-shadow: none;
+        border-radius: 0;
+        &:before {
+            font-size: 1.6em;
+        }
+    }
+}
+
+.totalCsv {
+    margin-bottom: 1em;
+}
+
+.message_read_only {
+    background: #EEE;
+    padding: 0.5em 0.8em;
+    border: 1px solid #CCC;
+}
+
+.message-details-top-bar {
+    position: fixed;
+    top: 2.2em;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    padding: 0.5em 2em 0.5em 14em;
+    box-shadow: 0 0 14px rgba(0,0,0,.3);
+    z-index: 2;
+    background: #FFF;
+}
+
+.tabs-message-details {
+    border-bottom: 3px solid @xLightBlue;
+    margin-bottom: 1.5em;
+    display: block;
+    text-align: center;
+    width: 100%;
+    v-tab {
+        padding: 1em 0.5em 0.5em;
+        display: inline-block!important;
+        width: auto;
+        min-width: 10em;
+        background: #FFF;
+        border-top-left-radius: 5px;
+        border: 3px solid @xLightBlue;
+        background: @xLightBlue;
+        margin-bottom: -3px;
+        border-top-right-radius: 5px;
+        color: @blue;
+        cursor: pointer;
+        margin-right: 0.3em;
+        &.is-active {
+            outline: none;
+            color: @blue;
+            border-bottom-color: #FFF;
+            outline: none;
+            background: #FFF;
+        }
+    }
+}
+
+.resumeMessage {
+    position: relative;
+    padding-top: 2.5em;
+    .previewIframe {
+        top: 1.9em;
+    }
+    .containerIframe {
+        &:before { top: -0.2em; }
+    }
+    .actions-editeur {
+        top: 8em;
+    }
+    .btn-expand {
+        top: -0.1em;
+    }
+}
+
+/*========== Table emails ===========*/
+
+.table-status {
+    [class*="status"] {
+        width: 4em;
+        position: relative;
+        > div {
+            text-align: center;
+            &:before {
+                font-size: 1.2em;
+                color: #FFF;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+table .arrows {
+    &:hover {
+        text-decoration: underline;
+    }
+    &:before,
+    &:after {
+        content: "";
+        height: 0;
+        width: 0;
+        vertical-align: middle;
+        position: relative;
+        border-style: solid;
+        border-width: 9px 6px;
+        border-color: #FFF transparent transparent transparent;
+        top: 14px;
+        margin: 0 0.4em;
+    }
+}
+
+.tabsCreateMessage {
+    border-bottom: 3px solid @xLightBlue;
+    margin-bottom: 1.5em;
+    display: block;
+    text-align: center;
+    li {
+        padding: 1em 0.5em 0.5em;
+        display: inline-block;
+        width: auto;
+        min-width: 10em;
+        background: #FFF;
+        border-top-left-radius: 5px;
+        border: 3px solid @xLightBlue;
+        background: @xLightBlue;
+        margin-bottom: -3px;
+        border-top-right-radius: 5px;
+        color: @blue;
+        cursor: pointer;
+        &:before {
+            display: block;
+            font-size: 1.6em;
+            margin-bottom: 0.2em;
+        }
+        &.active {
+            outline: none;
+            color: @blue;
+            border-bottom-color: #FFF;
+            outline: none;
+            background: #FFF;
+        }
+    }
+    .duplicate-message {
+        .icomoon(before, "\e900", 0);
+    }
+    .quick-message {
+        .icomoon(before, "\e905", 0);
+    }
+    .news-message {
+        .icomoon(before, "\e04c", 0);
+    }
+    .disabledBtn {
+        background: #DDD;
+        border-color: #DDD;
+        color: #666;
+        position: relative;
+        cursor: not-allowed;
+    }
+    .info {
+        opacity: 0.75;
+        font-size: 0.7em;
+        font-style: italic;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #DDD;
+        padding: 0.5em;
+        line-height: 6em;
+    }
+}
+
+.listing-duplicated-message {
+    li {
+        padding: 0.5em 1em;
+        cursor: pointer;
+        border-bottom: 1px solid @xLightBlue;
+        &:hover {
+            background: @xLightBlue;
+        }
+    }
+    span {
+        width: 2em;
+        height: 2em;
+        background: @blue;
+        display: inline-block;
+        margin-right: 0.5em;
+        vertical-align: middle;
+        border-radius: 90px;
+        &:before {
+            color: #FFF;
+            text-align: center;
+            display: block;
+            line-height: 2em!important;
+        }
+        &.message_ok {
+            .icomoon(before, "\e612", 0);
+            background: desaturate(lighten(@warning, 10%), 10%);
+        }
+        &.sending {
+            .icomoon(before, "\f1d8", 0);
+            background: desaturate(lighten(@blue, 20%), 10%);
+        }
+        &.delivered,
+        &.sent {
+            .icomoon(before, "\f058", 0);
+            background: desaturate(lighten(@success, 20%), 40%);
+        }
+    }
+}
+
+.duplicate-content .btn {
+    display: block;
+    margin: 2em auto;
+}
+
+.message-actions {
+    max-width: 36em;
+    margin: auto;
+    button {
+        float: right;
+    }
+}
+
+.tabsContentMessage {
+    padding: 1em 2em;
+    max-width: 40em;
+    margin: auto;
+}
+
+.mail-details {
+    width: 2em;
+    text-align: center;
+    .btn {
+        font-size: 1.5em;
+        line-height: 1;
+        padding: 0 0.2em;
+        min-width: 1em;
+    }
+}
+
+.width-td-small { width: 3em; }
+
+.width-td { width: 9em; }
+
+.width-td-large { width: 13em; }
+
+.size-td {
+    width: 9em;
+    font-size: 1.5em;
+    position: relative;
+    > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        line-height: 2.2;
+        text-align: center;
+    }
+}
+
+.small-td {
+    width: 3em;
+}
+
+.content-sending {
+    width: 35%;
+    .progressbar ul > * {
+        width: auto;
+    }
+}
+
+.statsSending .progressbar {
+    margin-top: 0;
+}
+
+/**
+ * Element with status-border-* class
+ */
+[class*="status-border"] {
+    border: 1px solid #000;
+}
+
+.colorStatus(@color: #000000; @icon: "\f059") {
+    background: @color;
+    > div,
+    > input + label {
+        .icomoon(before, @icon, 0);
+    }
+    &.status-border {
+        background: #FFF;
+        border-color: @color;
+        color: @color;
+        > div,
+        > input + label:before {
+            color: @color;
+        }
+        &:hover,
+        &.isActive {
+            background: @color;
+            color: #FFF;
+            > div,
+            > input + label:before {
+                color: #FFF;
+            }
+        }
+    }
+}
+
+@unknown: desaturate(lighten(#999, 20%), 30%);
+@delivered: desaturate(lighten(@success, 20%), 40%);
+@sending: desaturate(lighten(@blue, 20%), 10%);
+@message_ok: desaturate(lighten(@warning, 10%), 10%);
+@ignored: desaturate(lighten(#2c3e50, 10%), 10%);
+@dropped: desaturate(lighten(#f39c12, 10%), 10%);
+@bounced: desaturate(lighten(@error, 10%), 10%);
+@clicked: desaturate(lighten(#8e44ad, 10%), 10%);
+@opened: desaturate(lighten(#1abc9c, 10%), 10%);
+
+.status-unknown {
+    .colorStatus(@unknown; "\f059");
+}
+
+.status-opened {
+    .colorStatus(@opened; "\e610");
+}
+
+.status-clicked {
+    .colorStatus(@clicked; "\e611");
+}
+
+.status-delivered,
+.status-sent,
+.status-ok {
+    .colorStatus(@delivered; "\f058");
+}
+
+.status-sending,
+.status-queued {
+    .colorStatus(@sending; "\f1d8");
+}
+
+.status-message_ok,
+.status-delayed {
+    .colorStatus(@message_ok; "\e612");
+}
+
+.status-ignored {
+    .colorStatus(@ignored; "\f057");
+}
+
+.status-dropped {
+    .colorStatus(@dropped; "\f057");
+}
+
+.status-bounced,
+.status-message_issues,
+.status-ko {
+    .colorStatus(@bounced; "\f06a");
+}
+
+.messageStatBox {
+    text-align: center;
+    + a {
+        text-align: center;
+        text-decoration: none;
+        color: #999;
+        margin-top: 0.5em;
+        display: block;
+    }
+    .bigText {
+        margin-bottom: 0.5em;
+    }
+}
+
+.btn-export {
+    margin-left: 0.5em;
+    &:before {
+        top: 0.2em;
+    }
+}
+
+.firstPartMailWidth { width: 50%; }
+.secondPartMailWidth {
+    width: 50%;
+    position: relative;
+    .customSelect {
+        width: 100%;
+        padding-left: 1.2em;
+    }
+    .arobase {
+        position: absolute;
+        top: 0.3em;
+        left: 0.2em;
+    }
+    .arobase_name {
+        display: block;
+        padding: 0.2em 0.5em;
+    }
+}
+
+/*
+* Create Message
+*/
+
+.actions-editeur {
+    position: absolute;
+    right: 0;
+    top: 10em;
+    text-align: center;
+    z-index: 1;
+    width: 50%;
+    > * {
+        display: block;
+        margin: auto;
+    }
+    > span {
+        font-size: 1.2em;
+        margin: 0.5em 0;
+        color: #666;
+    }
+}
+
+.importHtmlChoice {
+    li {
+        vertical-align: middle;
+        padding: 0.5em;
+    }
+    .disabled {
+        position: relative;
+        &:before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.list-attachments {
+    .icon-remove-circle {
+        color: @orange;
+        font-size: 1.3em;
+        vertical-align: middle;
+        cursor: pointer;
+        &:hover {
+            color: @blue;
+        }
+    }
+    .inputAttachments {
+        display: inline-block;
+        margin-bottom: 0.5em;
+    }
+}
+
+#preview_html {
+    &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 1;
+    }
+}
+
+.w80-ngdialog {
+    .ngdialog-content {
+        width: 80%!important;
+    }
+}
+
+.creatingMessage {
+    .previewIframe {
+        height: 200%;
+    }
+    .btn-openToothpaste { opacity: 1; }
+}
+
+
+/*
+ * Import Csv
+ */
+
+.importCsv {
+    text-align: center;
+    .importCsvContainer {
+        width: 12em;
+        margin: auto;
+        height: 6em;
+        border-radius: 5px;
+        border: 3px dashed #CCC;
+        color: #CCC;
+        line-height: 7em;
+        position: relative;
+        cursor: pointer;
+        &:before {
+            font-size: 3em;
+        }
+        .btn {
+            opacity: 0;
+            background: none;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+        }
+        &:hover {
+            border-color: @orange;
+            color: @orange;
+        }
+    }
+}
+
+.titleAdvancedOptions {
+    font-size: 1.1em;
+    cursor: pointer;
+    &.isOpen {
+        &:before {
+            content: "-";
+        }
+    }
+    &:before {
+        content: "+";
+        padding: 0.15em .5em;
+        background: @orange;
+        margin-right: 0.4em;
+        color: #FFF;
+        display: inline-block;
+        min-width: 0.6em;
+        text-align: center;
+        border-radius: 2px;
+        font-size: 0.7em;
+        vertical-align: text-top;
+        line-height: 1.2em;
+        min-height: 1.2em;
+    }
+}

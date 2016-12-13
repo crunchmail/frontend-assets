@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Sommaire
+
+   1 = Mixins & Gobal variables
+   2 = Sidebar Mixins
+   3 = Media queries
+   ========================================================================== */
+
+/* ==========================================================================
+   1 = Mixins & Global variables
+   ========================================================================== */
+
+@margeLeftGlobal:2.33%;
+@sizeTabletMax:50em; //800px
+@sizeMobileMin:37.50em; //600px
+
+.col { letter-spacing: -5px; /*fix bug ff PC*/
+  > * {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+  }
+}
+
+.colNumber(@number, @marge) {
+  .valueMarge (@marge) when (@marge = null) {
+    .colNomarge {
+      &.col@{number} {
+        > * {
+          width: 100/@number;
+          margin-bottom: @margeLeftGlobal;
+        }
+      }
+    }
+  }
+  .valueMarge (@marge) when not(@marge = null) {
+    .colMarge {
+      &.col@{number} {
+        > * {
+          width: (100 - (@number - 1%)*@marge)/@number;
+          margin-bottom: @margeLeftGlobal;
+          &:nth-child(@{number}n+1) { margin-left: 0; }
+        }
+      }
+    }
+  }
+  .valueMarge(@marge);
+}
+
+.colNumber(2, @margeLeftGlobal);
+.colNumber(3, @margeLeftGlobal);
+.colNumber(4, @margeLeftGlobal);
+.colNumber(5, @margeLeftGlobal);
+.colNumber(6, @margeLeftGlobal);
+
+.colNumber(2, null);
+.colNumber(3, null);
+.colNumber(4, null);
+.colNumber(5, null);
+.colNumber(6, null);
+
+.colMarge > * { margin-left: @margeLeftGlobal; }
+
+/* ==========================================================================
+   2 = Sidebar Mixins
+   ========================================================================== */
+   
+.colSidebar(@direction, @contentWidth) {
+  
+  .valueDirection (@direction) when (@direction = Left) {
+    .colSidebar@{direction} {
+      > *:first-child {
+        width: 100-@contentWidth - @margeLeftGlobal;
+        margin-left: 0;
+        + * {
+          width: @contentWidth;
+          margin-bottom: @margeLeftGlobal;
+        }
+      }
+    }
+  }
+  .valueDirection (@direction) when (@direction = Right) {
+    .colSidebar@{direction} {
+      > *:first-child {
+        width: @contentWidth;
+        margin-left: 0;
+        + * {
+          width: 100-@contentWidth - @margeLeftGlobal;
+          margin-bottom: @margeLeftGlobal;
+        }
+      }
+    }
+  }
+  .valueDirection(@direction);
+}
+
+.colSidebar(Right, 75%);
+.colSidebar(Left, 75%);
+
+
+/* ==========================================================================
+   3 = Media queries
+   ========================================================================== */
+
+/* ==========================================================================
+   3-1 =  Mobile
+   ========================================================================== */
+
+@media screen and (max-width: @sizeMobileMin) {
+  .col2.colMarge > *, 
+  .colSidebarLeft.colMarge > *,
+  .colSidebarRight.colMarge > * { 
+    margin-left: 0;
+  }
+  .col2 > * { width: 100%; }
+  .col4.colMarge > *, 
+  .col3.colMarge > * { 
+    width: (100 - @margeLeftGlobal)/2;
+  }
+  .col4.colMarge > *:nth-child(2n+1),
+  .col3.colMarge > *:nth-child(2n+1) {
+    margin-left: 0;
+  } 
+  .colSidebarLeft > *:first-child,
+  .colSidebarLeft > *:first-child + *,
+  .colSidebarRight > *:first-child,
+  .colSidebarRight > *:first-child + * {
+    width: auto;
+    display: block;
+    margin-bottom: 1%;
+  }
+
+}
+
+/* ==========================================================================
+   3-2 =  Tablet portrait
+   ========================================================================== */
+
+@media screen and (min-width: @sizeMobileMin) and (max-width: @sizeTabletMax)  {
+  .col4.colMarge > * { width: (100 - 2 * @margeLeftGlobal)/3; }
+  .col4.colMarge > *:nth-child(3n+1) { margin-left: 0; }
+}
+
+/* ==========================================================================
+   3-3 =  Desktop
+   ========================================================================== */
+
+@media screen and (min-width: @sizeMobileMin + 1) {
+  .col3.colMarge > *:nth-child(3n+1) { margin-left: 0; }
+}
+
+@media screen and (min-width: @sizeTabletMax + 1) {
+  .col4.colMarge > *:nth-child(4n+1) { margin-left: 0; }
+}

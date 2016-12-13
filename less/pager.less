@@ -1,0 +1,27 @@
+.pagination {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 0.2em;
+        &.active a {
+            background: @orange;
+        }
+    }
+    a {
+        display: block;
+        padding: 0.1em 0.6em;
+        background: @blue;
+        border-radius: 2px;
+        color: #FFF;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        box-shadow: 0 .1em .3em rgba(0,0,0,.3);
+        &:hover {
+            background: @lightBlue;
+        }
+
+    }
+}

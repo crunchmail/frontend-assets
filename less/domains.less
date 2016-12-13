@@ -1,0 +1,26 @@
+.domain-status {
+    color: #FFF;
+    font-size: 1.2em;
+    text-align: center;
+    &.ko {
+        background: desaturate(lighten(@error, 20%), 10%);
+        .icomoon(before, "\f06a", 0);
+    }
+    &.unknown {
+        background: desaturate(lighten(#999, 20%), 10%);
+        .icomoon(before, "\f059", 0);
+    }
+    &.ok {
+        background: desaturate(lighten(@success, 20%), 40%);
+        .icomoon(before, "\f058", 0);
+    }
+}
+
+.list-domains-container {
+    cm-status-legend {
+        margin-bottom: 1em;
+    }
+    &.have_domains .btn-action-right {
+        margin-top: -6em;
+    }
+}

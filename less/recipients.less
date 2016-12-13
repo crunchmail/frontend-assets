@@ -1,0 +1,377 @@
+.selected-item {
+    background: @blue;
+    color: #FFF;
+    border-color: #FFF;
+    display: block;
+}
+
+.container_allcontacts {
+    overflow: hidden;
+    position: relative;
+}
+
+.contactSpinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.7);
+    z-index: 1;
+    height: 101%;
+    width: 100%;
+}
+
+.infoCollectContact {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 11em;
+    color: #999;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.double-bounce1, .double-bounce2 {
+    background: @blue;
+}
+
+.all-contact .listing-contact {
+    background: #FFF;
+    height: 15em;
+    overflow: hidden;
+    border: 1px solid #CCC;
+    margin-bottom: 1.5em;
+    text-align: left;
+    &:hover {
+        overflow-y: scroll;
+    }
+}
+
+/*
+* recipient Spinner
+*/
+
+.recipient-spinner {
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.recipient-spinner-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 3em;
+    margin-top: -4em;
+    transform: translate(-50%);
+    text-align: center;
+    width: 30em;
+    padding: 1.5em;
+    background: #FFF;
+    border-radius: 2px;
+}
+
+.recipient-spinner-content progress {
+    display: block;
+    appearance: none;
+    width: 100%;
+    &::-webkit-progress-bar {
+        background-color: #eee;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    }
+    &::-moz-progress-bar {
+        background-color: #eee;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    }
+    &::-webkit-progress-value {
+        background: @blue;
+        border-radius: 2px;
+        transition: all 0.5s ease;
+    }
+    &::-moz-progress-value {
+        background: @blue;
+        border-radius: 2px;
+        transition: all 0.5s ease;
+    }
+}
+
+.textarea-recipients {
+    min-height: 16.9em;
+    margin-top: 2.7em;
+    max-width: 100%;
+}
+
+.textarea-recipients-btn {
+    width: 100%;
+    font-size: 0.8em;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: -0.5em;
+}
+
+
+v-tabs.recipients-tab {
+    border-bottom: 3px solid #daebf3;
+    margin-bottom: 1.5em;
+    display: block;
+    padding-left: 2em;
+    v-tab {
+        padding: 1em .5em .5em;
+        display: inline-block;
+        width: auto;
+        min-width: 10em;
+        border-top-left-radius: 5px;
+        border: 3px solid #daebf3;
+        background: #daebf3;
+        margin-bottom: -3px;
+        border-top-right-radius: 5px;
+        color: #2980b9;
+        cursor: pointer;
+        outline: none;
+        &.is-active {
+            color: #2980b9;
+            border-bottom-color: #FFF;
+            outline: 0;
+            background: #FFF;
+        }
+    }
+}
+
+.recipients-tab-container {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    &.recipients-full-width { width: 100%; }
+}
+
+.recipients-duplicate-info {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+}
+
+.recipients-duplicate-content {
+    height: 30em;
+    overflow: hidden;
+    &:hover {
+        overflow-y: scroll;
+    }
+}
+
+.recipients-duplicate-action-buttons {
+    display: inline-block;
+    width: 28%;
+    vertical-align: top;
+    position: relative;
+    top: 0.5em;
+}
+
+.recipients-duplicate-table {
+    font-size: 0.8em;
+    .is-selected {
+        background: @lightBlue;
+    }
+    input[type=radio]:checked + label:after {
+        content: "";
+        width: 0.6em;
+        height: 0.6em;
+        background: @blue;
+        border-radius: 90px;
+        left: 3px;
+        top: 9px;
+        font-size: 1em;
+        margin-top: 0;
+    }
+    .tr-separator {
+        border-bottom: 2px dashed @blue;
+    }
+}
+
+
+.list-contact-selected {
+    margin: 0;
+    li {
+        padding: 0.5em;
+        border-bottom: 1px solid #CCC;
+        position: relative;
+        .btn {
+            float: right;
+            font-size: 1em;
+        }
+    }
+    .nbre {
+        position: absolute;
+        right: 5em;
+        font-size: 0.7em;
+        background-color: @blue;
+        color: #FFF;
+        text-align: center;
+        padding: 0.45em 0.6em;
+        border-radius: 90px;
+        min-width: 2.4em;
+    }
+}
+
+.all-contacts-added {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.recipients-content-collapse {
+    overflow: hidden;
+    margin-top: -1.05em;
+    margin-bottom: 1em;
+    position: relative;
+    &:hover {
+        overflow-y: auto;
+    }
+    &.is-active {
+        border: 1px solid #CCC;
+        border-bottom: 0;
+        max-height: 20em;
+    }
+}
+
+.recipients-title-collapse {
+    font-size: 1em;
+    padding: 0.8em 3.5em 0.8em 1em;
+    cursor: pointer;
+    border: 1px solid #CCC;
+    margin-bottom: 1em;
+    position: relative;
+    &:before {
+        content: '+';
+        background: @orange;
+        color: #FFF;
+        width: 1.4em;
+        padding: 0.2em 0;
+        line-height: 1em;
+        text-align: center;
+        display: inline-block;
+        margin-right: 0.3em;
+    }
+    .nbre {
+        float: right;
+        font-size: 0.7em;
+        background-color: @blue;
+        color: #FFF;
+        text-align: center;
+        padding: 0.45em 0.6em;
+        border-radius: 90px;
+        min-width: 2.4em;
+    }
+    &.is-active {
+        &:before {
+            content: '-';
+        }
+    }
+    &.is-hidden {
+        cursor: default;
+        .nbre {
+            background: #666;
+        }
+        &:before {
+            background: #CCC;
+        }
+    }
+    .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        box-shadow: none;
+        border-radius: 0;
+        font-size: 1.2em;
+        height: 100%;
+        padding: 0 0.7em;
+        z-index: 1;
+    }
+}
+
+.recipients-csv-container {
+    margin-top: 3em;
+}
+
+.selected-contact {
+    width: 47%;
+    margin-left: 2%;
+    margin-top: 2.7em;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    .btn-bottom {
+        position: absolute;
+        bottom: -3em;
+        width: 100%;
+        font-size: 0.8em;
+        border-radius: 0;
+    }
+}
+
+
+/*
+* Csv
+*/
+
+/* ==========================================================================
+10 = CSV
+========================================================================== */
+
+.tableCSV {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.separator {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2em 0;
+    position: relative;
+    &:before {
+        content: "";
+        height: 1px;
+        background: #CCC;
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        margin: -0.5px 0 0 -40%;
+        left: 50%;
+    }
+    span {
+        padding: 0.5em;
+        background: #FFF;
+        position: relative;
+    }
+}
+
+.csvUpload {
+    margin-bottom: 2em;
+    width: auto;
+}
+
+
+.infoMessage {
+    .btn {
+        margin-top: 0.5em;
+    }
+}
+
+
+.tablerecipientsMessage {
+    height: 31em;
+    overflow: hidden;
+    td:last-child {
+        width: 3em;
+    }
+    .icon-alone { font-size: 1em; }
+    &:hover {
+        overflow-y: scroll;
+    }
+}

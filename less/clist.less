@@ -1,0 +1,147 @@
+.clist-container {
+    .btn-create {
+        margin-top: -4.5em;
+    }
+}
+
+.clist-tabs-menu.tabs-message-details {
+    v-tab {
+        min-width: 15em;
+    }
+}
+
+.clist-form-add-contact {
+    display: block;
+    margin-top: 0.4em;
+}
+
+.clist-import-fieldset {
+    margin-bottom: 1em;
+    padding: 1em;
+    position: relative;
+    margin-top: 3em;
+    border: 2px solid @blue;
+    h3 {
+        position: absolute;
+        top: -1.8em;
+        left: -0.1em;
+        background: @blue;
+        color: #FFF;
+        padding: 0.3em 0.8em;
+        font-size: 1em;
+        cursor: pointer;
+        &:before {
+            content: "-";
+            background: #FFF;
+            color: #2980b9;
+            width: 1.2em;
+            display: inline-block;
+            text-align: center;
+            margin-right: 0.3em;
+        }
+    }
+    &.isCollapse {
+        padding: 0;
+        height: 0;
+        border-color: #FFF;
+        h3 {
+            &:before {
+                content: '+';
+            }
+        }
+    }
+}
+
+.clist-add-property {
+    display: block;
+    margin-top: -0.75em;
+    margin-bottom: 1.5em;
+}
+
+.clist-checkbox-thead {
+    &:focus + label:before {
+        box-shadow: none!important;
+    }
+    + label {
+        color: #333;
+    }
+}
+
+.jaw-clist {
+    border: 1px solid #CCC;
+    border-bottom: 0;
+    li {
+        border-bottom: 1px solid #CCC;
+        padding: 0.8em;
+        position: relative;
+        cursor: pointer;
+        &.is-selected {
+            background: @blue;
+            color: #FFF;
+            .nbre {
+                background: #FFF;
+                color: @blue;
+            }
+        }
+    }
+    .nbre {
+        float: left;
+        font-size: 0.7em;
+        background-color: @blue;
+        color: #FFF;
+        text-align: center;
+        padding: 0.45em 0.6em;
+        border-radius: 90px;
+        min-width: 2.4em;
+        margin-right: 0.7em;
+    }
+    .btn {
+        font-size: 0.9em;
+        position: absolute;
+        right: 0.8em;
+    }
+}
+
+.jaw-clist-container {
+    padding-top: 1em;
+    .jaw-clist {
+        margin-bottom: 0;
+    }
+    .btn-add {
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+        font-size: 0.8em;
+    }
+}
+
+.msg-no-element {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #999;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.errors{
+    background: lighten(@warning, 15%);
+    padding: 1.5em;
+    margin-bottom: 1em;
+    position: relative;
+    .close-btn {
+        background: #FFF;
+        padding: 0 .45em;
+        font-size: 1.2em;
+        border: 0;
+        border-radius: 90px;
+        position: absolute;
+        top: -0.5em;
+        right: -0.5em;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        cursor: pointer;
+        outline: 0;
+        &:hover {
+            color: @orange;
+        }
+    }
+}

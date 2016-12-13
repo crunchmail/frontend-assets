@@ -1,0 +1,817 @@
+/* ==========================================================================
+Sommaire
+
+1 = Boutons
+2 = Text Formatting
+3 = Table
+4 = Form
+========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: @XXLightBlue;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 7em;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+p:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child{
+    margin-top: 0;
+}
+
+img {
+    max-width: 100%;
+    height :auto;
+}
+
+.element-invisible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+h1,
+.h1 {
+    font-size: 2.5em;
+}
+
+h2,
+.h2 {
+    font-size: 1.8em;
+}
+
+h3,
+.h3 {
+    font-size: 1.4em;
+}
+
+h4,
+.h4 {
+    font-size: 1.2em;
+}
+
+h5,
+.h5 {
+    font-size: 1em;
+}
+
+h6,
+.h6 {
+    font-size: 0.8em;
+}
+
+.ul-reset {
+    margin: 0.5em 0;
+    padding: 0;
+    li {
+        list-style: none;
+    }
+}
+
+h1,
+h2,
+.h1,
+.h2 {
+    font-family: 'Lobster', cursive;
+    font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    line-height: 1.2;
+}
+
+.container-inline-title {
+    padding: 1em 0;
+    h2, h3 {
+        display: inline-block;
+        margin: 0;
+    }
+}
+
+.bg-blue { background: @blue; }
+.bg-light-blue { background: @lightBlue; }
+.bg-x-light-blue { background: @xLightBlue; }
+.bg-x-light-grey { background: #EEE; }
+.bg-light-grey { background: #CCC; }
+.bg-grey { background: #444; }
+.bg-orange { background: @orange; }
+.bg-success { background: @success; }
+.bg-warning { background: @warning; }
+.bg-error { background: @error; }
+
+.hidden {
+    display: none!important;
+    &.active { display: block!important; }
+}
+
+.w70 { width: 70%; }
+.w90 { width: 90%; }
+.mt { margin-top: 2em; }
+.tar { text-align: right; }
+.tal { text-align: left; }
+.tac { text-align: center; }
+
+/* ==========================================================================
+1 = Boutons
+========================================================================== */
+
+.btns {
+    letter-spacing: -5px;
+    .btn {
+        border-radius: 0;
+        letter-spacing: normal;
+        box-shadow: none;
+        &:first-child {
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+        &:last-child {
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+    }
+}
+
+.ghost-btn {
+    background: none;
+    border: 0;
+    padding: 0.5em 1.5em;
+    &[disabled] {
+        background: none!important;
+        opacity: 0.6;
+        &:hover {
+            background: none!important;
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    background: @orange;
+    color: #FFF;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 0.8em 2em;
+    font-weight: 700;
+    transition: background 0.5s ease;
+    box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.3);
+    cursor: pointer;
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+    &:hover,
+    &:focus {
+        background-color: lighten(@orange, 10%);
+    }
+    &.warning-btn {
+        background: @red;
+        &:hover,
+        &:focus {
+            background-color: lighten(@red, 10%);
+        }
+    }
+    &.classic-btn {
+        background: @blue;
+        &:hover,
+        &:focus {
+            background-color: lighten(@blue, 10%);
+        }
+    }
+    &.validate-btn {
+        background: @green;
+        &:hover,
+        &:focus {
+            background-color: lighten(@green, 10%);
+        }
+    }
+    &.icon-absolute {
+        position: relative;
+        padding-left: 3em;
+        &:before {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-51%);
+            left: 0.4em;
+            font-size: 1.8em;
+        }
+        &.x-small-btn {
+            padding-left: 2.5em;
+            &:before {
+                font-size: 1.5em;
+                transform: translateY(-55%);
+            }
+        }
+    }
+    &.icon-alone {
+        font-size: 1.5em;
+        padding: 0.1em 0.4em;
+    }
+    &.square-btn {
+        width: 3.5em;
+        height: 3.5em;
+        text-align: center;
+        line-height: 3.5em;
+        padding: 0;
+    }
+    &.btn-collapse {
+        background: #FFF;
+        box-shadow: none;
+        color: #444;
+        border: 1px solid #CCC;
+        &.is-active {
+            border-bottom-color: #FFF;
+        }
+    }
+}
+
+.btn-add {
+    .icomoon(after, "\e60d", 1.5em);
+    padding-right: 3em;
+    padding-left: 1.5em;
+    position: relative;
+    &:after {
+        position: absolute;
+        right: 0.6em;
+        top: 50%;
+        font-size: 1.5em;
+        font-weight: normal;
+        margin-top: -0.5em;
+    }
+}
+
+.title-with-bg + .btn-action-right { transform: translate(0, 100%); }
+
+.btn-action-right { float: right; }
+
+a.btn { text-decoration: none; }
+input.btn,
+button.btn {
+    border: 0;
+}
+
+.x-small-btn {
+    font-size: 0.75em;
+    padding: 0.5em 1.5em;
+}
+
+.btn-arrow-right {
+    text-align: left;
+    position: relative;
+    &.x-small-btn:before { top: 0.2em; }
+    &:before {
+        position: absolute;
+        font-size: 1.8em;
+        top: 0.3em;
+        right: 0.4em;
+    }
+}
+.btn-arrow-left {
+    text-align: right;
+    position: relative;
+    &.x-small-btn:before { top: 0.2em; }
+    &:before {
+        position: absolute;
+        font-size: 1.8em;
+        top: 0.3em;
+        left: 0.4em;
+    }
+}
+.small-btn { font-size: 0.9em; }
+.large-btn { font-size: 1.2em; }
+.disabled-btn, button[disabled], input[disabled] {
+    background: #CCC!important;
+    cursor: default;
+    &:hover,
+    &:focus {
+        background: #CCC!important;
+    }
+}
+
+.icon-big:before {
+    font-size: 1.5em;
+    line-height: inherit;
+}
+.icon-medium:before {
+    font-size: 1.2em;
+    line-height: inherit;
+}
+
+iframe {
+    border: 0;
+    width: 100%;
+}
+
+/* ==========================================================================
+2 = Text Formatting
+========================================================================== */
+
+a {
+    color: @blue;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.title-with-bg {
+    background: url("img/bg/bg-with-title.svg") no-repeat right 0;
+    background-size: auto 100%;
+    position: relative;
+    display: inline-block;
+    padding: 0.9em 2em 0.3em 0.5em;
+    color: #FFF;
+}
+
+h2.title-with-bg:after {
+    top: -0.69em;
+    height: 2.48em;
+}
+
+.editable {
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0.1em;
+    display: inline-block;
+    &:hover {
+        color: @orange;
+    }
+    &:before {
+        font-size: 0.7em;
+        padding-right: 0.2em;
+    }
+}
+
+.editable-hide {
+    display: none;
+}
+
+.editable-controls {
+    input {
+        display: inline-block;
+        width: auto;
+        vertical-align: top;
+        outline: 0;
+    }
+    button {
+        display: inline-block;
+        background: @orange;
+        color: #FFF;
+        vertical-align: top;
+        text-transform: uppercase;
+        font-size: 0.75em;
+        padding: 0.8em;
+        font-weight: 700;
+        transition: background 0.5s ease;
+        cursor: pointer;
+        border: 0;
+        &:active,
+        &:focus {
+            outline: 0;
+        }
+        &:hover,
+        &:focus {
+            background-color: lighten(@orange, 10%);
+        }
+        &[type="submit"] {
+            background: @green;
+            &:hover,
+            &:focus {
+                background-color: lighten(@green, 10%);
+            }
+        }
+        // &.warning-btn {
+        //     background: @red;
+        //     &:hover,
+        //     &:focus {
+        //         background-color: lighten(@red, 10%);
+        //     }
+        // }
+        // &.classic-btn {
+        //     background: @blue;
+        //     &:hover,
+        //     &:focus {
+        //         background-color: lighten(@blue, 10%);
+        //     }
+        // }
+        // &.validate-btn {
+        //     background: @green;
+        //     &:hover,
+        //     &:focus {
+        //         background-color: lighten(@green, 10%);
+        //     }
+        // }
+    }
+}
+
+.list {
+    li {
+        position: relative;
+        &:before {
+            content: "";
+            background: @blue;
+            border-radius: 2em;
+            display: inline-block;
+            height: 0.5em;
+            width: 0.5em;
+            margin-right: 0.7em;
+            position: relative;
+            top: -0.1em;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 0.54em;
+            left: 0.3em;
+            border-style: solid;
+            border-color: transparent transparent transparent @blue;
+            border-width: 0.25em 0.6em;
+        }
+    }
+}
+
+.ol-list {
+    counter-reset: section;
+    li {
+        counter-increment: section;
+        position: relative;
+        padding-left: 1.5em;
+        margin-bottom: 1em;
+        &:before {
+            content: counter(section);
+            position: absolute;
+            left: 0;
+            margin-right: 0.4em;
+            border-radius: 90px;
+            padding: 0.2em 0.65em;
+            background: @blue;
+            color: #FFF;
+            margin: 0 0.4em 0 -0.3em;
+            font-size: 0.8em;
+        }
+    }
+}
+
+pre {
+    padding: 2em;
+    background: #EEE;
+    color: #444;
+}
+
+code {
+    background: none;
+    padding: 0;
+}
+
+/* ==========================================================================
+3 = Table
+========================================================================== */
+
+@colorBorder:#CCC;
+
+table {
+    border: 1px solid @colorBorder;
+    width: 100%;
+    margin-bottom: 1.5em;
+    thead, tfoot {
+        background: @blue;
+        border: 1px solid @blue;
+        text-align: left;
+        th {
+            padding: 1em;
+            color: #FFF;
+            border-left: 1px solid #FFF;
+            border-right: 1px solid #FFF;
+            a {
+                color: #FFF;
+                text-decoration: none;
+            }
+            &:first-child {
+                border-left-color: @blue;
+            }
+            &:last-child {
+                border-right-color: @blue;
+            }
+        }
+    }
+    tbody tr:nth-child(odd) {
+        background: @xLightBlue;
+    }
+    td {
+        border: 1px solid @colorBorder;
+        padding: 0.5em;
+    }
+}
+
+/* ==========================================================================
+4 = Form
+========================================================================== */
+
+label {
+    display: block;
+    padding-bottom: 0.5em;
+}
+
+.container-inline {
+    display: inline-block;
+    label {
+        display: inline-block;
+        margin-right: 0.4em;
+    }
+}
+
+.form-group { margin-bottom: 1em; }
+
+.form-category { min-width: 25em; }
+
+.description {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+input,
+textarea {
+    padding: 0.5em 0.8em;
+    width: 100%;
+    border: 1px solid #CCC;
+    &[readonly] {
+        background: #EEE;
+        color: #999;
+        border: 1px solid #DDD;
+    }
+}
+
+input.ng-valid + .error {
+    display: none;
+}
+
+input[type="file"] {
+    background: #FFF;
+}
+
+.inline-label {
+    label {
+        display: inline-block;
+        margin-right: 0.5em;
+    }
+    input {
+        width: auto;
+        min-width: 7em;
+    }
+}
+
+.form-error {
+    color: @error;
+}
+
+.form-checkgroups {
+    div {
+        display: inline-block;
+        width: 49%;
+    }
+}
+
+/* Hide original input */
+input[type='checkbox'],
+input[type='radio'] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* Define pseudo element as fake input */
+input[type='checkbox'] + label:before,
+input[type='radio'] + label:before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    margin-right: 0.5em;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    color: #444;
+    background: #FFF;
+}
+
+input[type='radio'] + label:before {
+    border-radius: 90px;
+}
+
+/* Focus state */
+input[type='checkbox']:focus + label:before,
+input[type='radio']:focus + label:before {
+    box-shadow: 0 0 0 5pt #EEE;
+}
+
+/* Checked state */
+input[type='radio']:checked + label {
+    position: relative;
+}
+input[type='radio']:checked + label:after {
+    content: "•";
+    font-size: 1.6em;
+    left: 1.5px;
+    margin-top: -0.95em;
+    position: absolute;
+    top: 50%;
+}
+
+input[type='checkbox']:checked + label {
+    position: relative;
+    display: inline-block;
+}
+input[type='checkbox']:checked + label:after {
+    content: "✓";
+    font-size: 1.6em;
+    left: 1.5px;
+    margin-top: -1em;
+    position: absolute;
+    top: 50%;
+}
+
+.dragFile {
+    border-radius: 5px;
+    border: 3px dashed #FFF;
+    color: #FFF;
+    position: relative;
+    text-align: center;
+    padding: 1em;
+    cursor: pointer;
+    &:hover {
+        border-color: @orange;
+        color: @orange;
+    }
+    &:before {
+        font-size: 3em;
+    }
+    input[type="file"] {
+        opacity: 0;
+        background: none;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+.customSelect {
+    display: inline-block;
+    select {
+        opacity: 0;
+        background: none;
+        height: 2.5em;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+    }
+}
+
+.disabledSelect {
+    .customSelectDiv {
+        border: 1px solid #DDD;
+        background: #EEE;
+        color: #999;
+        &:after {
+            content: "";
+        }
+    }
+}
+
+.customSelectDiv {
+    margin-top: -2.5em;
+    border: 1px solid #CCC;
+    background: #FFF;
+    padding: 0.3em .5em;
+    &:after {
+        content: "▾";
+        padding: 0 .5em;
+        float: right;
+    }
+}
+
+.thumb() {
+    appearance: none;
+    background: @blue;
+    width: 1em;
+    height: 1em;
+    border-radius: 90px;
+    position: relative;
+    margin-top: -0.45em;
+    z-index: 2;
+    border: 0;
+    cursor: pointer;
+    &:before {
+        position: absolute;
+        content: "";
+        background: @blue;
+        width: 500px;
+        left: -500px;
+        top: 0.4em;
+        height: 0.25em;
+    }
+}
+
+.range() {
+    background: #FFF;
+    width: 100%;
+    height: .2em;
+    cursor: pointer;
+}
+
+input[type=range] {
+    box-sizing: content-box;
+    appearance: none;
+    border: 0;
+    overflow: hidden;
+    background: none;
+    padding: 0;
+    height: 1.2em;
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-slider-thumb {
+        .thumb()
+    }
+    &::-moz-range-thumb {
+        .thumb()
+    }
+    &::-ms-thumb {
+        .thumb()
+    }
+    &::-webkit-slider-runnable-track {
+        .range()
+    }
+    &::-moz-range-track {
+        .range()
+    }
+    &::-ms-track {
+        .range()
+    }
+}
+
+.error {
+    color: @red;
+}
+
+.ADMdtp-container {
+    font-family: inherit;
+    line-height: inherit;
+    .masterInput {
+        input {
+            height: auto;
+            padding: 0.5em 0.8em;
+            font-size: 0.9em;
+            line-height: inherit;
+            border-radius: 0;
+        }
+        .iconContainer {
+            border-radius: 0;
+        }
+        .iconContainer .calendarIcon,
+        .iconContainer .closeIcon,
+        .iconContainer .removeIcon {
+            height: 100%;
+        }
+    }
+}

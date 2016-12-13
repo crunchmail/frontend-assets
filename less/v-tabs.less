@@ -1,0 +1,42 @@
+v-tab {
+    position: relative;
+    cursor: pointer;
+    color: inherit;
+}
+v-tab.is-active {
+    color: #2196F3;
+}
+v-tab[disabled] {
+    cursor: not-allowed;
+}
+
+v-tabs[horizontal] {
+    display: table;
+    v-tab {
+        display: table-cell;
+        width: 2%;
+        text-align: center;
+    }
+}
+
+v-tabs[vertical] {
+    v-tab {
+        display: block;
+    }
+}
+
+/***************************************
+Pages
+***************************************/
+
+v-pages {
+    display: block;
+    position: relative;
+}
+
+v-page {
+    display: none;
+    &.is-active {
+        display: block;
+    }
+}

@@ -1,0 +1,61 @@
+ul.stepform-menu {
+	overflow: hidden;
+	margin-bottom: 1.5em;
+	position: relative;
+	&:before {
+		content: "";
+		height: 3px;
+		background: #CCC;
+		width: 75%;
+		top: 1.3em;
+		left: 12%;
+		position: absolute;
+	}
+	li {
+		float: left;
+		width: 25%;
+	}
+	span {
+		position: absolute;
+		z-index: 2;
+		color: #FFF;
+		font-size: 1.2em;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	a {
+		color: #444;
+		text-decoration: none;
+		text-align: center;
+		display: block;
+		text-transform: uppercase;
+		width: 80%;
+		margin: auto;
+		position: relative;
+		&:before {
+			content: "";
+			width: 2.5em;
+			height: 2.5em;
+			display: block;
+			margin: 0 auto 0.5em;
+			border-radius: 90px;
+			background: @blue;
+			border: 2px solid @XXLightBlue;
+			position: relative;
+			z-index: 2;
+		}
+	}
+	.disabled {
+		color: #DDD;
+		&:before {
+			background: #CCC;
+		}
+	}
+}
+
+.step-form {
+	.btn-next {
+		float: right;
+	}
+}

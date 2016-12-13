@@ -1,0 +1,29 @@
+.icomoon(@afterOrBefore, @content, @marge) when (@afterOrBefore = after) {
+	&:after {
+		font-family: 'icomoon';
+		content: @content;
+		margin-left: @marge;
+		line-height: 1;
+	}
+}
+
+.icomoon(@afterOrBefore, @content, @marge) when (@afterOrBefore = before) {
+	&:before {
+		font-family: 'icomoon';
+		content: @content;
+		margin-right: @marge;
+		line-height: 1;
+	}
+}
+
+.colFunction(@nbrCol, @margeValue) {
+	letter-spacing: -5px;
+	> * {
+		display: inline-block;
+		vertical-align: middle;
+		letter-spacing: normal;
+		width: (100 - (@nbrCol - 1%)*@margeValue)/@nbrCol;
+		margin: 0 0 @margeValue @margeValue;
+		&:nth-child(@{nbrCol}n+1) { margin-left: 0; }
+	}
+}

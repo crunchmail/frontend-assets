@@ -1,0 +1,39 @@
+.list-organization-container {
+    .btn-action-right {
+        margin-top: -4em;
+    }
+}
+
+.child-organizations {
+    position: relative;
+    padding-top: 1em;
+    display: inline-block;
+    &:before {
+        content: "";
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        background: @lightBlue;
+        left: 50%;
+        top: 0;
+    }
+    li {
+        background: @XXLightBlue;
+        position: relative;
+        z-index: 1;
+        margin-left: 2em;
+    }
+}
+
+.form_organization {
+    input[type="checkbox"] {
+        &:checked {
+            + label {
+                &:after {
+                    margin-top: -0.8em;
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+}

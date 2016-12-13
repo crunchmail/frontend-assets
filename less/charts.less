@@ -1,0 +1,358 @@
+@import "lib/colors.less";
+@import "lib/mixins.less";
+
+/* ==========================================================================
+	4 = Stats
+========================================================================== */
+@sizePie:200px;
+
+.info-message {
+	margin-bottom: 2em;
+	li:before {
+		vertical-align: middle;
+  	position: relative;
+  	top: -0.15em;
+  	margin-right: 0.4em;
+	}
+	.icon-tag:before {
+		left: 0.1em;
+	}
+}
+
+.stats h2 {
+	font-size: 1.6em;
+	text-align: center;
+}
+
+.bigText {
+	font-size: 2em;
+	font-weight: 700;
+	text-align: center;
+}
+
+.containerChart {
+	position: relative;
+	min-height: @sizePie;
+	width: @sizePie;
+	margin: auto;
+}
+
+.pie {
+	width: @sizePie;
+	margin: auto;
+}
+
+.pie:before {
+	content: "";
+	position: absolute;
+	width:@sizePie;
+	height:@sizePie;
+	border-radius:@sizePie/2;
+	background: #CCC;
+}
+
+.chartDonut {
+	h2 { text-align: center; }
+}
+
+.donut:before {
+	content: "";
+	position: absolute;
+	width:@sizePie;
+	height:@sizePie;
+	border-radius:@sizePie/2;
+	background: #CCC;
+}
+
+.donut:after {
+	content: "";
+	position: absolute;
+	width: @sizePie*0.60;
+	height: @sizePie*0.60;
+	border-radius:@sizePie/2;
+	background: #FFF;
+	top: (@sizePie*0.40)/2;
+	left: (@sizePie*0.40)/2;
+}
+
+.legendDonut {
+	position: absolute;
+	z-index: 1;
+	font-size: @sizePie/6;
+	top: @sizePie/2.666;
+	width: @sizePie;
+	text-align: center;
+	font-weight: 700;
+}
+
+.mask {
+	width:@sizePie;
+	height:@sizePie;
+	clip:rect(0px,@sizePie,@sizePie,@sizePie/2);
+	position: absolute;
+}
+
+.round {
+	width:@sizePie;
+	height:@sizePie;
+	clip:rect(0px,@sizePie/2,@sizePie,0px);
+	border-radius:@sizePie/2;
+	position: absolute;
+	transition: all 0.5s ease;
+}
+
+.mask.gt50 {
+	clip:rect(auto, auto, auto, auto);
+}
+.round.fill {
+	transform:rotate(180deg) !important;
+}
+
+.elementLegend {
+	margin: 0 0 1em @sizePie + 30px;
+	max-width: 17em;
+	overflow: hidden;
+	span[class*="bg"] {
+		width: 2em;
+		height: 2em;
+		display: inline-block;
+		margin-right: 1em;
+		vertical-align: middle;
+	}
+	.valueLegend {
+		float: right;
+	}
+}
+
+.container-global-stats {
+	margin-top: 10em;
+}
+
+.links_table {
+	thead {
+		text-align: left;
+	}
+}
+
+.container_links {
+	h2 {
+		text-align: left;
+	}
+}
+
+.exportCSV {
+	position: absolute;
+	top: 0.5em;
+	right: 0;
+}
+
+/*========== Chart line ===========*/
+
+.centerAbsolute {
+	&.spinner {
+		width: 32px;
+		height: 32px;
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		margin: -16px 0 0 -16px;
+	}
+}
+
+.containerChart.line {
+	position: relative;
+	height: 400px;
+	width: 90%;
+	margin: 0;
+	left: 2em;
+	ul {
+		margin: 0;
+	}
+	.xChartLine { margin-left: 5em; }
+}
+
+.yChartLine {
+	border-right: 1px solid #CCC;
+	width: 5em;
+	height: 100%;
+	text-align: center;
+	&.alone li { line-height: 800px;}
+	li { line-height: 0;}
+}
+
+.valueChart {
+	position: absolute;
+	width: 100%;
+	padding-right: 5em;
+	height: 100%;
+	top: 0;
+	left: 5em;
+	li {
+		position: absolute;
+		text-align: center;
+		z-index: 9;
+		cursor: pointer;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			margin-left: -20px;
+			width: 0.6em;
+			height: 0.6em;
+			border-radius: 90px;
+			margin-top: -4px;
+		}
+		&:hover {
+			.textLineData { display: inline; }
+		}
+	}
+}
+
+.lineSpan {
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	top: 0;
+	margin-left: -16px;
+	transform-origin: 0 0;
+}
+
+.line-1 {
+	.lineSpan {
+		background: @green;
+	}
+	li:before {
+		background: @green;
+	}
+}
+.line-2 {
+	.lineSpan {
+		background: @blue;
+	}
+	li:before {
+		background: @blue;
+	}
+}
+.line-3 {
+	.lineSpan {
+		background: @orange;
+	}
+	li:before {
+		background: @orange;
+	}
+}
+.textLineData {
+	position: absolute;
+	margin-left: -20px;
+	margin-top: 10px;
+	display: none;
+}
+
+.upTextLine {
+	.textLineData {
+		margin-top: -30px;
+	}
+}
+
+.xChartLine {
+	width: 101%;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	&:before {
+		content: "";
+		border-top: 1px solid #CCC;
+		width: 100%;
+		display: block;
+		position: absolute;
+		left: 80px;
+		bottom: 0;
+	}
+	li {
+		float: left;
+	  position: relative;
+	  transform: rotate(-45deg);
+	  transform-origin: 37px 37px;
+	  white-space: nowrap;
+	  top: 8em;
+	  left: -5em;
+	  font-size: 0.8em;
+	  text-align: right;
+	  height: 19px;
+	  span {
+	  	position: absolute;
+		  top: -3em;
+		  left: -4em;
+		  width: 200px;
+	  }
+	}
+	&.small {
+		li span {
+			top: 0;
+			left: -1em;
+		}
+	}
+}
+.legendLine {
+	position: absolute;
+  top: -5em;
+  padding: 1.5em 1em;
+  width: 100%;
+  text-align: right;
+  left: 4em;
+	li {
+		position: relative;
+		padding-left: 1.5em;
+		display: inline-block;
+		margin-left: 2em;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0.25em;
+			left: 0;
+			width: 1em;
+			height: 1em;
+			border-radius: 2px;
+			vertical-align: text-bottom;
+		}
+	}
+	.legend-1:before { background: @green; }
+	.legend-2:before { background: @blue; }
+	.legend-3:before { background: @orange; }
+}
+
+/*========== Progressbar ===========*/
+
+.progressbar {
+	min-height: 0;
+	width: auto;
+	margin-top: 1em;
+	ul {
+		.colFunction(3, 2.33%);
+		li { margin-bottom: 0; }
+	}
+	.legend { font-style: italic; }
+}
+
+.progressbarContainer {
+	background: #BBB;
+	position: relative;
+	border-radius: 2px;
+  overflow: hidden;
+}
+
+.valueProgress {
+	background: @blue;
+	font-size: 0.7em;
+	height: 2em;
+	span {
+		position: absolute;
+		top: 0.3em;
+		width: 1.6em;
+		margin-left: -1.3em;
+		left: 50%;
+		color: #FFF;
+	}
+}

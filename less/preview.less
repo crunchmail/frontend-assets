@@ -1,0 +1,82 @@
+/*
+* Iframe Preview
+*/
+
+.custom-ngdialog-fullscreen {
+    .ngdialog-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 2em;
+    }
+    .ngdialog-close {
+        position: absolute;
+        top: 0;
+        right: 0.5em;
+        z-index: 1;
+        font-size: 1.8em;
+        color: #999;
+        &:hover {
+            color: @blue;
+        }
+    }
+}
+
+/*
+* Resize iframe
+*/
+
+.btnsPreview {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.previewSupport {
+    position: relative;
+    margin: 4em auto 2em;
+    transition: all 0.5s ease;
+    &:before {
+        width: 100%;
+        top: -1.5em;
+    }
+    &:after {
+        content: "○";
+        position: absolute;
+        width: 100%;
+        height: 1.2em;
+        bottom: -1.1em;
+        left: 0;
+        background: #9ecae0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        text-align: center;
+        font-size: 4em;
+        line-height: 1;
+        color: #FFF;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+}
+
+.size-tablet,
+.size-mobile {
+    &:before {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    &:after {
+        opacity: 1;
+    }
+}
+
+.size-mobile {
+    max-width: 400px;
+}
+.size-tablet {
+    max-width: 700px;
+}
+.size-desktop {
+    max-width: 1200px;
+}
